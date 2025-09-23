@@ -5,10 +5,14 @@
 
 
 from os import system
+import math
+from datetime import datetime
 
 # System("CLS") To clear the Output after an input or on to the next operation #
 
 balance = 10000000
+file1 = open("transactions.txt", "a")
+counter = 0
 
 name = input("Who Is Making Use Of This ATM?\n")
 system("CLS")
@@ -31,10 +35,13 @@ decision = str(input("How may I Help You? \n"))
 system("CLS")
 # If statements used for the decisions #
 # Withdrawal #
+file1.write("Start time :      ")
+file1.write(str(datetime.now()) + "\n")
+
 while (decision != "6"):
     
     if (flag !=0):
-        print("Welcome " + name + " To " + Bank + " Bank PLC")
+        #print("Welcome " + name + " To " + Bank + " Bank PLC")
         print("""
         1.Withdrawal
         2.Transfer
@@ -51,6 +58,7 @@ while (decision != "6"):
         pin = input()
         system("CLS")
         if pin == "0000":
+            counter = counter + 1
             print("How Much would you like to withdraw?")
             print("Your Bank Charge Depends on your Amount")
             withdrawal = int(input())
@@ -63,7 +71,9 @@ while (decision != "6"):
                 charges = 41.99
                 # Every charge set is different due to the range of money withdrawn #
             Total = balance - withdrawal - charges
+            file1.write("Transaction #  : " + str(counter) +  " ,"   + "Withdrawal amount : " + str(withdrawal) +  "\n\n")
             print("$" + str(withdrawal) + " Has been withdrawn.\nTotal is: $" + str(Total))
+            
         else:
             print("Sorry You're not allowed here")
             exit()
@@ -147,6 +157,7 @@ while (decision != "6"):
         system("CLS")
         if pin == "0000":
             print(name + " Your balance is: $" + str(balance))
+            file1.write("Transaction #  : " + str(counter) +  " ,"   + "Balance Check : " + str(balance) +  "\n\n")
         else:
             print("Sorry You're not allowed here")
             exit()
@@ -159,10 +170,13 @@ while (decision != "6"):
             print(name + " We Will have you communicate with an official soon...")
 
             complaint = input(" What seems to be the issue? ")
+            file1.write("Transaction #  : " + str(counter) +  " ,"   + "Support Issue : " + complaint +  "\n\n")
         else:
             print("Sorry You're not allowed here")
             exit()
 
+file1.write("End time :      ")
+file1.write(str(datetime.now()) + "\n")
 print("Exiting the system...")
     
 # //////////////    ////////////// #
