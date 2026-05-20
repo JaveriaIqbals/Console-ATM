@@ -1,0 +1,20 @@
+Start time :      time.struct_time(tm_year=2025, tm_mon=9, tm_mday=22, tm_hour=18, tm_min=50, tm_sec=8, tm_wday=0, tm_yday=265, tm_isdst=1)
+Transaction #  : 1 ,Withdrawal amount : 234
+
+Transaction #  : 2 ,Withdrawal amount : 455
+
+End time :      time.struct_time(tm_year=2025, tm_mon=9, tm_mday=22, tm_hour=18, tm_min=50, tm_sec=21, tm_wday=0, tm_yday=265, tm_isdst=1)
+Start time :      Start time :      2025-09-22 18:52:52.564834
+Transaction #  : 1 ,Withdrawal amount : 123
+
+Transaction #  : 2 ,Withdrawal amount : 456
+
+End time :      2025-09-22 18:53:03.085352
+Start time :      2025-09-22 18:56:25.497143
+Transaction #  : 1 ,Withdrawal amount : 4545
+
+Transaction #  : 1 ,Balance Check : 10000000
+
+Transaction #  : 1 ,Support Issue : receipt printing is off
+
+End time :      2025-09-22 18:57:05.750453

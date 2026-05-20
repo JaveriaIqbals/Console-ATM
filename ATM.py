@@ -5,10 +5,14 @@
 
 
 from os import system
+import math
+from datetime import datetime
 
 # System("CLS") To clear the Output after an input or on to the next operation #
 
 balance = 10000000
+file1 = open("transactions.txt", "a")
+counter = 0
 
 name = input("Who Is Making Use Of This ATM?\n")
 system("CLS")
@@ -23,49 +27,36 @@ print("""
 3.Bill Payment
 4.Balance Check
 5.Support
-6.Exit
 """)
+
+flag = 0
 decision = str(input("How may I Help You? \n"))
 flag = 0
 system("CLS")
 # If statements used for the decisions #
 # Withdrawal #
-while(decision != "6"):
-    if(flag != 0):
-        print("Welcome " + name + " To " + Bank + " Bank PLC")
-        print("""
-        1.Withdrawal
-        2.Transfer
-        3.Bill Payment
-        4.Balance Check
-        5.Support
-        6.Exit
-        """)
-        decision = str(input("How may I Help You? \n"))
-    
-    flag = 1
-    if decision == "1":
-        print("Input four digit PIN please")
-        pin = input()
+if decision == "1":
+    print("Input four digit PIN please")
+    pin = input()
+    system("CLS")
+    if pin == "0000":
+        print("How Much would you like to withdraw?")
+        print("Your Bank Charge Depends on your Amount")
+        withdrawal = int(input())
         system("CLS")
-        if pin == "0000":
-            print("How Much would you like to withdraw?")
-            print("Your Bank Charge Depends on your Amount")
-            withdrawal = int(input())
-            system("CLS")
-            if withdrawal < 10000:
-                charges = 10.34
-            if withdrawal > 10000:
-                charges = 23.41
-            if withdrawal >= 20000:
-                charges = 41.99
-                # Every charge set is different due to the range of money withdrawn #
-            Total = balance - withdrawal - charges
-            print("$" + str(withdrawal) + " Has been withdrawn.\nTotal is: $" + str(Total))
-        else:
-            print("Sorry You're not allowed here")
-            exit()
-            # exit() functions used to exit the program if pin is incorrect #
+        if withdrawal < 10000:
+            charges = 10.34
+        if withdrawal > 10000:
+            charges = 23.41
+        if withdrawal >= 20000:
+            charges = 41.99
+            # Every charge set is different due to the range of money withdrawn #
+        Total = balance - withdrawal - charges
+        print("$" + str(withdrawal) + " Has been withdrawn.\nTotal is: $" + str(Total))
+    else:
+        print("Sorry You're not allowed here")
+        exit()
+        # exit() functions used to exit the program if pin is incorrect #
 
             # Transfer #
     if decision == "2":
@@ -135,33 +126,32 @@ while(decision != "6"):
                 print("How many NEPA Points do you want to Buy?")
                 nepa_points = input()
 
-        else:
-            print("Sorry You're not allowed here")
-            exit()
-            # Balance Check #
-    if decision == "4":
-        print("Input four digit PIN Please ")
-        pin = input()
-        system("CLS")
-        if pin == "0000":
-            print(name + " Your balance is: $" + str(balance))
-        else:
-            print("Sorry You're not allowed here")
-            exit()
-            # Support #
-    if decision == "5":
-        print("Input four digit PIN Please")
-        pin = input()
-        system("CLS")
-        if pin == "0000":
-            print(name + " We Will have you communicate with an official soon...")
+    else:
+        print("Sorry You're not allowed here")
+        exit()
+        # Balance Check #
+if decision == "4":
+    print("Input four digit PIN Please ")
+    pin = input()
+    system("CLS")
+    if pin == "0000":
+        print(name + " Your balance is: $" + str(balance))
+    else:
+        print("Sorry You're not allowed here")
+        exit()
+        # Support #
+if decision == "5":
+    print("Input four digit PIN Please")
+    pin = input()
+    system("CLS")
+    if pin == "0000":
+        print(name + " We Will have you communicate with an official soon...")
 
-            complaint = input(" What seems to be the issue? ")
-        else:
-            print("Sorry You're not allowed here")
-            exit()
-            
-print("Good Bye!")
+        complaint = input(" What seems to be the issue? ")
+    else:
+        print("Sorry You're not allowed here")
+        exit()
+
 # //////////////    ////////////// #
 #      ///               ///       #
 #     ///               ///        #
